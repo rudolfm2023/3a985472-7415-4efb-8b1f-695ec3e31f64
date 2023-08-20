@@ -1,13 +1,53 @@
-﻿string input = Console.ReadLine();
+﻿
+int caseNumber = 1;
+string instructions = "Press Escape (Esc) to exit, Enter to see result";
+string inputTitle = "Please enter your numbers seperated by space.";
+string input = string.Empty;
 
-var digits = input.Split(' ').Select(c => Convert.ToInt32(c)).ToArray();
+Console.WriteLine($"{instructions}");
+Console.WriteLine($"{inputTitle} Test case - {caseNumber}");
 
-Console.WriteLine(input);
+do
+{
+    ConsoleKeyInfo key;
+    key = Console.ReadKey();
 
-var output = GetLongestIncreasingSubsequence(digits);
+    if (key.Key == ConsoleKey.Escape)
+    {
+        break;
+    }
 
-Console.WriteLine(String.Join(", ", output));
-Console.ReadKey();
+    if (key.Key == ConsoleKey.Enter)
+    {
+        if (input.Trim().Length > 0)
+        {
+            var digits = input.Split(' ').Select(c => Convert.ToInt32(c)).ToArray();
+            var output = GetLongestIncreasingSubsequence(digits);
+
+            Console.WriteLine();
+            Console.WriteLine("Input");
+            Console.WriteLine(input);
+            Console.WriteLine("Output");
+            Console.WriteLine(String.Join(", ", output));
+
+            ++caseNumber;
+            input = string.Empty;
+
+            Console.WriteLine();
+            Console.WriteLine($"{inputTitle} Test case - {caseNumber}");
+        }
+        else
+        {
+            Console.WriteLine("No Input available");
+            Console.WriteLine($"{inputTitle} Test case - {caseNumber}");
+        }
+    }
+    else
+    {
+        input = input + key.KeyChar;
+    }
+
+} while (true);
 
 
 static int[] GetLongestIncreasingSubsequence(int[] numbers)
