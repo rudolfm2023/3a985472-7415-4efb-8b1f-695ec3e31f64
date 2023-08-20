@@ -3,7 +3,8 @@
 <h2>Longest Increasing Subsequence</h2>
 
 - Project created using .DotNet 7 version
-- Packages used for usint testing \* nunit Version="3.13.3"
+- Packages used for unit testing
+  - nunit Version="3.13.3"
   - NUnit3TestAdapter Version="4.5.0"
   - Microsoft.NET.Test.Sdk Version="17.7.0"
 
@@ -17,7 +18,7 @@
 - Open terminal
 - dotnet run
 
-- OR
+OR
 
 - Opeing project with Visual Sudio
 - Compile and run
