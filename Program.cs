@@ -1,4 +1,8 @@
 ﻿using static LongestIncreasingSubsequence;
+using NUnit.Framework;
+
+// var test = new LongestIncreasingSubsequenceTests();
+// test.GetLongestIncreasingSubsequenceTest();
 
 int caseNumber = 1;
 string instructions = "Press Escape (Esc) to exit, Enter to see result";
@@ -90,4 +94,21 @@ public class LongestIncreasingSubsequence
 
         return longestSubsequence;
     }
+}
+
+
+[TestFixture]
+public class LongestIncreasingSubsequenceTests
+{
+    [Test]
+    public void GetLongestIncreasingSubsequenceTest()
+    {
+        int[] array = { 6, 1, 5, 9, 2 };
+        int[] expectedSubsequence = { 1, 5, 9 };
+
+        int[] result = GetLongestIncreasingSubsequence(array);
+
+        Assert.AreEqual(expectedSubsequence, result);
+    }
+
 }
